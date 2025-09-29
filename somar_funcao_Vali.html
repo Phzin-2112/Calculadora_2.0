@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Somar Dois Números</title>
+    <title>CALCULADORA 2.0</title>
     <style>
         /* Corpo e fundo */
         body {
@@ -89,7 +89,7 @@
 <body>
 
     <div class="container">
-        <h1 id="titulo">Somar dois números</h1>
+        <h1 id="titulo">Calculadora</h1>
 
         <label for="n1">Número 1:</label>
         <input id="n1" type="number" placeholder="Digite o primeiro número">
@@ -99,7 +99,10 @@
 
         <div id="out"></div>
 
-        <button id="btn">Somar</button>
+        <button id="btn1">Somar</button>
+        <button id="btn2">Subitrair</button>
+        <button id="btn3">Multiplicar</button>
+        <button id="btn4">Dividir</button>
     </div>
 
     <script>
@@ -113,12 +116,60 @@
                 document.getElementById('out').style.color = '#2a9d8f'; // Resultado em verde
             }
         }
+        function Subitrair(n1, n2) {
+            if (isNaN(n1) || isNaN(n2) || n1 <= 0 || n2 <= 0) {
+                alert("O número tem que ser maior que 0 e válido!");
+                document.getElementById('out').textContent = `Entrada inválida!`;
+                document.getElementById('out').style.color = '#e76f51'; // Mensagem de erro em vermelho
+            } else {
+                document.getElementById('out').textContent = `Resultado: ${n1 - n2}`;
+                document.getElementById('out').style.color = '#2a9d8f'; // Resultado em verde
+            }
+        }
+        function Multiplicar(n1, n2) {
+            if (isNaN(n1) || isNaN(n2) || n1 <= 0 || n2 <= 0) {
+                alert("O número tem que ser maior que 0 e válido!");
+                document.getElementById('out').textContent = `Entrada inválida!`;
+                document.getElementById('out').style.color = '#e76f51'; // Mensagem de erro em vermelho
+            } else {
+                document.getElementById('out').textContent = `Resultado: ${n1 * n2}`;
+                document.getElementById('out').style.color = '#2a9d8f'; // Resultado em verde
+            }
+        }
+        function Dividir(n1, n2) {
+            if (isNaN(n1) || isNaN(n2) || n1 <= 0 || n2 <= 0) {
+                alert("O número tem que ser maior que 0 e válido!");
+                document.getElementById('out').textContent = `Entrada inválida!`;
+                document.getElementById('out').style.color = '#e76f51'; // Mensagem de erro em vermelho
+            } else {
+                document.getElementById('out').textContent = `Resultado: ${n1 / n2}`;
+                document.getElementById('out').style.color = '#2a9d8f'; // Resultado em verde
+            }
+        }
 
-        document.getElementById('btn').addEventListener('click', function() {
+        document.getElementById('btn1').addEventListener('click', function() {
             const n1 = Number(document.getElementById('n1').value);
             const n2 = Number(document.getElementById('n2').value);
 
             soma(n1, n2);
+        });
+        document.getElementById('btn2').addEventListener('click', function() {
+            const n1 = Number(document.getElementById('n1').value);
+            const n2 = Number(document.getElementById('n2').value);
+
+            Subitrair(n1, n2);
+        });
+        document.getElementById('btn3').addEventListener('click', function() {
+            const n1 = Number(document.getElementById('n1').value);
+            const n2 = Number(document.getElementById('n2').value);
+
+            Multiplicar(n1, n2);
+        });
+        document.getElementById('btn4').addEventListener('click', function() {
+            const n1 = Number(document.getElementById('n1').value);
+            const n2 = Number(document.getElementById('n2').value);
+
+            Dividir(n1, n2);
         });
     </script>
 
